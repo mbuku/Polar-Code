@@ -1,0 +1,342 @@
+`timescale 1 ns / 1 ns
+
+module Polar_Encoder_Bloc
+          (clk,
+           reset,
+           enb,
+           dataIn,
+           ctrlIn_start,
+           ctrlIn_end,
+           ctrlIn_valid,
+           K,
+           E,
+           dataOut,
+           CtrlOut_start,
+           CtrlOut_end,
+           CtrlOut_valid,
+           nextFrame);
+
+
+  input   clk;
+  input   reset;
+  input   enb;
+  input   dataIn;
+  input   ctrlIn_start;
+  input   ctrlIn_end;
+  input   ctrlIn_valid;
+  input   [9:0] K;  
+  input   [13:0] E;  
+  output  dataOut;
+  output  CtrlOut_start;
+  output  CtrlOut_end;
+  output  CtrlOut_valid;
+  output  nextFrame;
+
+
+  wire Complex_to_Real_Imag2_out1;
+  wire Cast_To_Boolean_out1;
+  wire Cast_out1;  
+  reg  Delay_out1;  
+  reg  Delay6_out1;  
+  reg  Delay1_out1_start;
+  reg  Delay1_out1_end;
+  reg  Delay1_out1_valid;
+  reg [9:0] Delay7_out1;  
+  reg [13:0] Delay8_out1;  
+  wire [10:0] sequenceIdx;  
+  wire [9:0] Data_Type_Conversion_out1;  
+  wire [9:0] KOut;  
+  wire [16:0] EOut;  
+  wire reconfig;
+  wire [7:0] configure_out1;  
+  wire configure_out2;
+  wire configure_out3;  
+  wire configure_out4;  
+  wire configure_out5;  
+  wire configure_out6;
+  wire [9:0] configure_out7;  
+  wire configure_out8;
+  wire framing_out3;
+  wire [9:0] wrAddr;  
+  wire wrEn;
+  wire valid;
+  wire rstCore;
+  wire frameMap_out1;  
+  wire frameMap_out2;
+  wire [7:0] frameMap_out3; 
+  wire encode_out1;  
+  wire encode_out2;
+  wire framing_out1;  
+  wire framing_out2_start;
+  wire framing_out2_end;
+  wire framing_out2_valid;
+  reg  Delay2_out1;  
+  wire Cast1_out1;
+  reg  Delay3_out1_start;
+  reg  Delay3_out1_end;
+  reg  Delay3_out1_valid;
+
+
+  assign Complex_to_Real_Imag2_out1 = dataIn;
+
+
+
+  assign Cast_To_Boolean_out1 = (Complex_to_Real_Imag2_out1 != 1'b0 ? 1'b1 :
+              1'b0);
+
+
+
+  assign Cast_out1 = Cast_To_Boolean_out1;
+
+
+
+  always @(posedge clk or posedge reset)
+    begin : Delay_process
+      if (reset == 1'b1) begin
+        Delay_out1 <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay_out1 <= Cast_out1;
+        end
+      end
+    end
+
+
+
+  always @(posedge clk or posedge reset)
+    begin : Delay6_process
+      if (reset == 1'b1) begin
+        Delay6_out1 <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay6_out1 <= Delay_out1;
+        end
+      end
+    end
+
+
+
+  always @(posedge clk or posedge reset)
+    begin : c_process
+      if (reset == 1'b1) begin
+        Delay1_out1_start <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay1_out1_start <= ctrlIn_start;
+        end
+      end
+    end
+
+
+
+  always @(posedge clk or posedge reset)
+    begin : c_1_process
+      if (reset == 1'b1) begin
+        Delay1_out1_end <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay1_out1_end <= ctrlIn_end;
+        end
+      end
+    end
+
+
+
+  always @(posedge clk or posedge reset)
+    begin : c_2_process
+      if (reset == 1'b1) begin
+        Delay1_out1_valid <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay1_out1_valid <= ctrlIn_valid;
+        end
+      end
+    end
+
+
+
+  always @(posedge clk or posedge reset)
+    begin : Delay7_process
+      if (reset == 1'b1) begin
+        Delay7_out1 <= 10'b0000000000;
+      end
+      else begin
+        if (enb) begin
+          Delay7_out1 <= K;
+        end
+      end
+    end
+
+
+
+  always @(posedge clk or posedge reset)
+    begin : Delay8_process
+      if (reset == 1'b1) begin
+        Delay8_out1 <= 14'b00000000000000;
+      end
+      else begin
+        if (enb) begin
+          Delay8_out1 <= E;
+        end
+      end
+    end
+
+
+
+  assign Data_Type_Conversion_out1 = sequenceIdx[9:0];
+
+
+
+  configure my_configure (.clk(clk),
+                         .reset(reset),
+                         .enb(enb),
+                         .K(KOut),  // ufix10
+                         .E(EOut),  // ufix17
+                         .QAddr(Data_Type_Conversion_out1),  // ufix10
+                         .reconfig(reconfig),
+                         .n(configure_out1),  // uint8
+                         .Q(configure_out2),
+                         .intlvDout(configure_out3),  // ufix1
+                         .intlvAddr(configure_out4),  // ufix1
+                         .intlvValid(configure_out5),  // ufix1
+                         .configured(configure_out6),
+                         .NSub1(configure_out7),  // ufix10
+                         .configValid(configure_out8)
+                         );
+
+  controller my_controller (.clk(clk),
+                           .reset(reset),
+                           .enb(enb),
+                           .ctrlIn_start(Delay1_out1_start),
+                           .ctrlIn_end(Delay1_out1_end),
+                           .ctrlIn_valid(Delay1_out1_valid),
+                           .KIn(Delay7_out1),  // ufix10
+                           .EIn(Delay8_out1),  // ufix14
+                           .frameEnd(framing_out3),
+                           .configured(configure_out6),
+                           .configValid(configure_out8),
+                           .NSub1(configure_out7),  // ufix10
+                           .wrAddr(wrAddr),  // ufix10
+                           .wrEn(wrEn),
+                           .valid(valid),
+                           .KOut(KOut),  // ufix10
+                           .EOut(EOut),  // ufix17
+                           .sequenceIdx(sequenceIdx),  // ufix11
+                           .reconfig(reconfig),
+                           .rstCore(rstCore),
+                           .nextFrame(nextFrame)
+                           );
+
+  Mapping_Data my_Mapping_Data (.clk(clk),
+                       .reset(reset),
+                       .enb(enb),
+                       .frameDIn(Delay6_out1),  // ufix1
+                       .frameWrAddr(wrAddr),  // ufix10
+                       .frameWrEn(wrEn),
+                       .readFrame(valid),
+                       .nIn(configure_out1),  // uint8
+                       .Q(configure_out2),
+                       .frameDataOut(frameMap_out1),  // ufix1
+                       .frameValidOut(frameMap_out2),
+                       .nOut(frameMap_out3)  // uint8
+                       );
+
+  encode my_encode (.clk(clk),
+                   .reset(reset),
+                   .enb(enb),
+                   .dataIn(frameMap_out1),  // ufix1
+                   .validIn(frameMap_out2),
+                   .n(frameMap_out3),  // uint8
+                   .rstCore(rstCore),
+                   .dataOut(encode_out1),  // ufix1
+                   .validOut(encode_out2)
+                   );
+
+  Buffer_Data my_Buffer_Data (.clk(clk),
+                     .reset(reset),
+                     .enb(enb),
+                     .dataIn(encode_out1),  // ufix1
+                     .validIn(encode_out2),
+                     .dataOut(framing_out1),  // ufix1
+                     .ctrlOut_start(framing_out2_start),
+                     .ctrlOut_end(framing_out2_end),
+                     .ctrlOut_valid(framing_out2_valid),
+                     .frameEnd(framing_out3)
+                     );
+
+  always @(posedge clk or posedge reset)
+    begin : Delay2_process
+      if (reset == 1'b1) begin
+        Delay2_out1 <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay2_out1 <= framing_out1;
+        end
+      end
+    end
+
+
+
+  assign Cast1_out1 = (Delay2_out1 != 1'b0 ? 1'b1 :
+              1'b0);
+
+
+
+  assign dataOut = Cast1_out1;
+
+  always @(posedge clk or posedge reset)
+    begin : c_3_process
+      if (reset == 1'b1) begin
+        Delay3_out1_start <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay3_out1_start <= framing_out2_start;
+        end
+      end
+    end
+
+
+
+  assign CtrlOut_start = Delay3_out1_start;
+
+  always @(posedge clk or posedge reset)
+    begin : c_4_process
+      if (reset == 1'b1) begin
+        Delay3_out1_end <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay3_out1_end <= framing_out2_end;
+        end
+      end
+    end
+
+
+
+  assign CtrlOut_end = Delay3_out1_end;
+
+  always @(posedge clk or posedge reset)
+    begin : c_5_process
+      if (reset == 1'b1) begin
+        Delay3_out1_valid <= 1'b0;
+      end
+      else begin
+        if (enb) begin
+          Delay3_out1_valid <= framing_out2_valid;
+        end
+      end
+    end
+
+
+
+  assign CtrlOut_valid = Delay3_out1_valid;
+
+endmodule 
+

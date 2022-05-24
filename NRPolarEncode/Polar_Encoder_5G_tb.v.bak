@@ -1,0 +1,823 @@
+`timescale 1 ns / 1 ns
+
+module Polar_Encoder_5G_tb;
+
+  reg  clk;
+  reg  reset;
+  wire clk_enable;
+  wire nextFrame_done;  // ufix1
+  wire rdEnb;
+  wire nextFrame_done_enb;  // ufix1
+  reg [13:0] dataOut_addr;  // ufix14
+  wire nextFrame_lastAddr;  // ufix1
+  wire resetn;
+  reg  check5_done;  // ufix1
+  wire ctrlOut_valid_done;  // ufix1
+  wire ctrlOut_valid_done_enb;  // ufix1
+  wire ctrlOut_valid_lastAddr;  // ufix1
+  reg  check4_done;  // ufix1
+  wire ctrlOut_end_done;  // ufix1
+  wire ctrlOut_end_done_enb;  // ufix1
+  wire ctrlOut_end_lastAddr;  // ufix1
+  reg  check3_done;  // ufix1
+  wire ctrlOut_start_done;  // ufix1
+  wire ctrlOut_start_done_enb;  // ufix1
+  wire ctrlOut_start_lastAddr;  // ufix1
+  reg  check2_done;  // ufix1
+  wire dataOut_done;  // ufix1
+  wire dataOut_done_enb;  // ufix1
+  wire dataOut_active;  // ufix1
+  reg [13:0] sampleIn_addr;  // ufix14
+  wire [13:0] E_addr_delay_1;  // ufix14
+  reg  tb_enb_delay;
+  reg signed [31:0] fp_E;  // sfix32
+  reg [13:0] rawData_E;  // ufix14
+  reg signed [31:0] status_E;  // sfix32
+  reg [13:0] holdData_E;  // ufix14
+  reg [13:0] E_offset;  // ufix14
+  wire [13:0] E;  // ufix14
+  wire [13:0] K_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_K;  // sfix32
+  reg [9:0] rawData_K;  // ufix10
+  reg signed [31:0] status_K;  // sfix32
+  reg [9:0] holdData_K;  // ufix10
+  reg [9:0] K_offset;  // ufix10
+  wire [9:0] K;  // ufix10
+  wire [13:0] ctrlIn_2_bus_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_ctrl_valid;  // sfix32
+  reg  rawData_ctrl_valid;
+  reg signed [31:0] status_ctrl_valid;  // sfix32
+  reg  holdData_ctrl_valid;
+  reg  ctrl_valid_offset;
+  wire ctrl_valid;
+  wire [13:0] ctrlIn_1_bus_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_ctrl_end;  // sfix32
+  reg  rawData_ctrl_end;
+  reg signed [31:0] status_ctrl_end;  // sfix32
+  reg  holdData_ctrl_end;
+  reg  ctrl_end_offset;
+  wire ctrl_end;
+  wire [13:0] ctrlIn_bus_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_ctrl_start;  // sfix32
+  reg  rawData_ctrl_start;
+  reg signed [31:0] status_ctrl_start;  // sfix32
+  reg  holdData_ctrl_start;
+  reg  ctrl_start_offset;
+  wire ctrl_start;
+  wire sampleIn_active;  // ufix1
+  wire sampleIn_enb;  // ufix1
+  wire [13:0] sampleIn_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_data;  // sfix32
+  reg  rawData_data;
+  reg signed [31:0] status_data;  // sfix32
+  reg  holdData_data;
+  reg  data_offset;
+  wire data;
+  wire snkDone;
+  wire snkDonen;
+  wire tb_enb;
+  wire ce_out;
+  wire dataOut;
+  wire ctrlOut_start;
+  wire ctrlOut_end;
+  wire ctrlOut_valid;
+  wire nextFrame;
+  wire dataOut_enb;  // ufix1
+  wire dataOut_lastAddr;  // ufix1
+  reg  check1_done;  // ufix1
+  wire [13:0] dataOut_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_dataOut_expected;  // sfix32
+  reg  dataOut_expected;
+  reg signed [31:0] status_dataOut_expected;  // sfix32
+  wire dataOut_ref;
+  reg  dataOut_testFailure;  // ufix1
+  wire [13:0] ctrlOut_start_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_ctrlOut_start_expected;  // sfix32
+  reg  ctrlOut_start_expected;
+  reg signed [31:0] status_ctrlOut_start_expected;  // sfix32
+  wire ctrlOut_start_ref;
+  reg  ctrlOut_start_testFailure;  // ufix1
+  wire [13:0] ctrlOut_end_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_ctrlOut_end_expected;  // sfix32
+  reg  ctrlOut_end_expected;
+  reg signed [31:0] status_ctrlOut_end_expected;  // sfix32
+  wire ctrlOut_end_ref;
+  reg  ctrlOut_end_testFailure;  // ufix1
+  wire [13:0] ctrlOut_valid_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_ctrlOut_valid_expected;  // sfix32
+  reg  ctrlOut_valid_expected;
+  reg signed [31:0] status_ctrlOut_valid_expected;  // sfix32
+  wire ctrlOut_valid_ref;
+  reg  ctrlOut_valid_testFailure;  // ufix1
+  wire [13:0] nextFrame_addr_delay_1;  // ufix14
+  reg signed [31:0] fp_nextFrame_expected;  // sfix32
+  reg  nextFrame_expected;
+  reg signed [31:0] status_nextFrame_expected;  // sfix32
+  wire nextFrame_ref;
+  reg  nextFrame_testFailure;  // ufix1
+  wire testFailure;  // ufix1
+
+
+  assign nextFrame_done_enb = nextFrame_done & rdEnb;
+
+
+
+  assign nextFrame_lastAddr = dataOut_addr >= 14'b10101001111100;
+
+
+
+  assign nextFrame_done = nextFrame_lastAddr & resetn;
+
+
+
+  // Delay to allow last sim cycle to complete
+  always @(posedge clk or posedge reset)
+    begin : checkDone_5
+      if (reset) begin
+        check5_done <= 0;
+      end
+      else begin
+        if (nextFrame_done_enb) begin
+          check5_done <= nextFrame_done;
+        end
+      end
+    end
+
+  assign ctrlOut_valid_done_enb = ctrlOut_valid_done & rdEnb;
+
+
+
+  assign ctrlOut_valid_lastAddr = dataOut_addr >= 14'b10101001111100;
+
+
+
+  assign ctrlOut_valid_done = ctrlOut_valid_lastAddr & resetn;  
+
+
+
+  // Delay to allow last sim cycle to complete
+  always @(posedge clk or posedge reset)
+    begin : checkDone_4
+      if (reset) begin
+        check4_done <= 0;
+      end
+      else begin
+        if (ctrlOut_valid_done_enb) begin
+          check4_done <= ctrlOut_valid_done;
+        end
+      end
+    end
+
+  assign ctrlOut_end_done_enb = ctrlOut_end_done & rdEnb;
+
+
+
+  assign ctrlOut_end_lastAddr = dataOut_addr >= 14'b10101001111100;
+
+
+
+  assign ctrlOut_end_done = ctrlOut_end_lastAddr & resetn;
+
+
+
+  // Delay to allow last sim cycle to complete
+  always @(posedge clk or posedge reset)
+    begin : checkDone_3
+      if (reset) begin
+        check3_done <= 0;
+      end
+      else begin
+        if (ctrlOut_end_done_enb) begin
+          check3_done <= ctrlOut_end_done;
+        end
+      end
+    end
+
+  assign ctrlOut_start_done_enb = ctrlOut_start_done & rdEnb;
+
+
+
+  assign ctrlOut_start_lastAddr = dataOut_addr >= 14'b10101001111100;
+
+
+
+  assign ctrlOut_start_done = ctrlOut_start_lastAddr & resetn;
+
+
+
+  // Delay to allow last sim cycle to complete
+  always @(posedge clk or posedge reset)
+    begin : checkDone_2
+      if (reset) begin
+        check2_done <= 0;
+      end
+      else begin
+        if (ctrlOut_start_done_enb) begin
+          check2_done <= ctrlOut_start_done;
+        end
+      end
+    end
+
+  assign dataOut_done_enb = dataOut_done & rdEnb;
+
+
+
+  assign dataOut_active = dataOut_addr != 14'b10101001111100;
+
+
+
+  assign #1 E_addr_delay_1 = sampleIn_addr;
+
+  // Data source for E
+  initial
+    begin : E_fileread
+     fp_E = $fopen("E.dat", "r");
+     status_E = $rewind(fp_E);
+    end
+
+  always @(E_addr_delay_1, rdEnb, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        rawData_E <= 14'bx;
+      end
+      else if (rdEnb == 1) begin
+       status_E = $fscanf(fp_E, "%h", rawData_E);
+      end
+    end
+
+  // holdData reg for E
+  always @(posedge clk or posedge reset)
+    begin : stimuli_E
+      if (reset) begin
+        holdData_E <= 14'bx;
+      end
+      else begin
+        holdData_E <= rawData_E;
+      end
+    end
+
+  always @(rawData_E or rdEnb)
+    begin : stimuli_E_1
+      if (rdEnb == 1'b0) begin
+        E_offset <= holdData_E;
+      end
+      else begin
+        E_offset <= rawData_E;
+      end
+    end
+
+  assign #2 E = E_offset;
+
+  assign #1 K_addr_delay_1 = sampleIn_addr;
+
+  // Data source for K
+  initial
+    begin : K_fileread
+      fp_K = $fopen("K.dat", "r");
+      status_K = $rewind(fp_K);
+    end
+
+  always @(K_addr_delay_1, rdEnb, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        rawData_K <= 10'bx;
+      end
+      else if (rdEnb == 1) begin
+       status_K = $fscanf(fp_K, "%h", rawData_K);
+      end
+    end
+
+  // holdData reg for K
+  always @(posedge clk or posedge reset)
+    begin : stimuli_K
+      if (reset) begin
+        holdData_K <= 10'bx;
+      end
+      else begin
+        holdData_K <= rawData_K;
+      end
+    end
+
+  always @(rawData_K or rdEnb)
+    begin : stimuli_K_1
+      if (rdEnb == 1'b0) begin
+        K_offset <= holdData_K;
+      end
+      else begin
+        K_offset <= rawData_K;
+      end
+    end
+
+  assign #2 K = K_offset;
+
+  assign #1 ctrlIn_2_bus_addr_delay_1 = sampleIn_addr;
+
+  // Data source for ctrl_valid
+  initial
+    begin : ctrl_valid_fileread
+      fp_ctrl_valid = $fopen("ctrl_valid.dat", "r");
+      status_ctrl_valid = $rewind(fp_ctrl_valid);
+    end
+
+  always @(ctrlIn_2_bus_addr_delay_1, rdEnb, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        rawData_ctrl_valid <= 1'bx;
+      end
+      else if (rdEnb == 1) begin
+        status_ctrl_valid = $fscanf(fp_ctrl_valid, "%h", rawData_ctrl_valid);
+      end
+    end
+
+  // holdData reg for ctrlIn_2_bus
+  always @(posedge clk or posedge reset)
+    begin : stimuli_ctrlIn_2_bus
+      if (reset) begin
+        holdData_ctrl_valid <= 1'bx;
+      end
+      else begin
+        holdData_ctrl_valid <= rawData_ctrl_valid;
+      end
+    end
+
+  always @(rawData_ctrl_valid or rdEnb)
+    begin : stimuli_ctrlIn_2_bus_1
+      if (rdEnb == 1'b0) begin
+        ctrl_valid_offset <= holdData_ctrl_valid;
+      end
+      else begin
+        ctrl_valid_offset <= rawData_ctrl_valid;
+      end
+    end
+
+  assign #2 ctrl_valid = ctrl_valid_offset;
+
+  assign #1 ctrlIn_1_bus_addr_delay_1 = sampleIn_addr;
+
+  // Data source for ctrl_end
+  initial
+    begin : ctrl_end_fileread
+      fp_ctrl_end = $fopen("ctrl_end.dat", "r");
+      status_ctrl_end = $rewind(fp_ctrl_end);
+    end
+
+  always @(ctrlIn_1_bus_addr_delay_1, rdEnb, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        rawData_ctrl_end <= 1'bx;
+      end
+      else if (rdEnb == 1) begin
+        status_ctrl_end = $fscanf(fp_ctrl_end, "%h", rawData_ctrl_end);
+      end
+    end
+
+  // holdData reg for ctrlIn_1_bus
+  always @(posedge clk or posedge reset)
+    begin : stimuli_ctrlIn_1_bus
+      if (reset) begin
+        holdData_ctrl_end <= 1'bx;
+      end
+      else begin
+        holdData_ctrl_end <= rawData_ctrl_end;
+      end
+    end
+
+  always @(rawData_ctrl_end or rdEnb)
+    begin : stimuli_ctrlIn_1_bus_1
+      if (rdEnb == 1'b0) begin
+        ctrl_end_offset <= holdData_ctrl_end;
+      end
+      else begin
+        ctrl_end_offset <= rawData_ctrl_end;
+      end
+    end
+
+  assign #2 ctrl_end = ctrl_end_offset;
+
+  assign #1 ctrlIn_bus_addr_delay_1 = sampleIn_addr;
+
+  // Data source for ctrl_start
+  initial
+    begin : ctrl_start_fileread
+      fp_ctrl_start = $fopen("ctrl_start.dat", "r");
+      status_ctrl_start = $rewind(fp_ctrl_start);
+    end
+
+  always @(ctrlIn_bus_addr_delay_1, rdEnb, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        rawData_ctrl_start <= 1'bx;
+      end
+      else if (rdEnb == 1) begin
+      status_ctrl_start = $fscanf(fp_ctrl_start, "%h", rawData_ctrl_start);
+      end
+    end
+
+  // holdData reg for ctrlIn_bus
+  always @(posedge clk or posedge reset)
+    begin : stimuli_ctrlIn_bus
+      if (reset) begin
+        holdData_ctrl_start <= 1'bx;
+      end
+      else begin
+        holdData_ctrl_start <= rawData_ctrl_start;
+      end
+    end
+
+  always @(rawData_ctrl_start or rdEnb)
+    begin : stimuli_ctrlIn_bus_1
+      if (rdEnb == 1'b0) begin
+        ctrl_start_offset <= holdData_ctrl_start;
+      end
+      else begin
+        ctrl_start_offset <= rawData_ctrl_start;
+      end
+    end
+
+  assign #2 ctrl_start = ctrl_start_offset;
+
+  assign sampleIn_active = sampleIn_addr != 14'b10101001111100;
+
+
+
+  assign sampleIn_enb = sampleIn_active & (rdEnb & tb_enb_delay);
+
+
+
+  // Count limited, Unsigned Counter
+  //  initial value   = 0
+  //  step value      = 1
+  //  count to value  = 10876
+  always @(posedge clk or posedge reset)
+    begin : FromWorkspace1_process
+      if (reset == 1'b1) begin
+        sampleIn_addr <= 14'b00000000000000;
+      end
+      else begin
+        if (sampleIn_enb) begin
+          if (sampleIn_addr >= 14'b10101001111100) begin
+            sampleIn_addr <= 14'b00000000000000;
+          end
+          else begin
+            sampleIn_addr <= sampleIn_addr + 14'b00000000000001;
+          end
+        end
+      end
+    end
+
+
+
+  assign #1 sampleIn_addr_delay_1 = sampleIn_addr;
+
+  // Data source for data
+  initial
+    begin : data_fileread
+     fp_data = $fopen("data.dat", "r");
+      status_data = $rewind(fp_data);
+    end
+
+  always @(sampleIn_addr_delay_1, rdEnb, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        rawData_data <= 1'bx;
+      end
+      else if (rdEnb == 1) begin
+        status_data = $fscanf(fp_data, "%h", rawData_data);
+      end
+    end
+
+  // holdData reg for sampleIn
+  always @(posedge clk or posedge reset)
+    begin : stimuli_sampleIn
+      if (reset) begin
+        holdData_data <= 1'bx;
+      end
+      else begin
+        holdData_data <= rawData_data;
+      end
+    end
+
+  always @(rawData_data or rdEnb)
+    begin : stimuli_sampleIn_1
+      if (rdEnb == 1'b0) begin
+        data_offset <= holdData_data;
+      end
+      else begin
+        data_offset <= rawData_data;
+      end
+    end
+
+  assign #2 data = data_offset;
+
+  assign snkDonen =  ~ snkDone;
+
+
+
+  assign resetn =  ~ reset;
+
+
+
+  assign tb_enb = resetn & snkDonen;
+
+
+
+  // Delay inside enable generation: register depth 1
+  always @(posedge clk or posedge reset)
+    begin : u_enable_delay
+      if (reset) begin
+        tb_enb_delay <= 0;
+      end
+      else begin
+        tb_enb_delay <= tb_enb;
+      end
+    end
+
+  assign rdEnb = (snkDone == 1'b0 ? tb_enb_delay :
+              1'b0);
+
+
+
+  assign #2 clk_enable = rdEnb;
+
+  initial
+    begin : reset_gen
+      reset <= 1'b1;
+      # (20);
+      @ (posedge clk)
+      # (2);
+      reset <= 1'b0;
+    end
+
+  always 
+    begin : clk_gen
+      clk <= 1'b1;
+      # (5);
+      clk <= 1'b0;
+      # (5);
+      if (snkDone == 1'b1) begin
+        clk <= 1'b1;
+        # (5);
+        clk <= 1'b0;
+        # (5);
+        $stop;
+      end
+    end
+
+  Polar_Encoder_5G my_Polar_Encoder_5G (.clk(clk),
+                                 .reset(reset),
+                                 .clk_enable(clk_enable),
+                                 .data(data),
+                                 .ctrl_start(ctrl_start),
+                                 .ctrl_end(ctrl_end),
+                                 .ctrl_valid(ctrl_valid),
+                                 .K(K),  // ufix10
+                                 .E(E),  // ufix14
+                                 .ce_out(ce_out),
+                                 .dataOut(dataOut),
+                                 .ctrlOut_start(ctrlOut_start),
+                                 .ctrlOut_end(ctrlOut_end),
+                                 .ctrlOut_valid(ctrlOut_valid),
+                                 .nextFrame(nextFrame)
+                                 );
+
+  assign dataOut_enb = ce_out & dataOut_active;
+
+
+
+  // Count limited, Unsigned Counter
+  //  initial value   = 0
+  //  step value      = 1
+  //  count to value  = 10876
+  always @(posedge clk or posedge reset)
+    begin : c_2_process
+      if (reset == 1'b1) begin
+        dataOut_addr <= 14'b00000000000000;
+      end
+      else begin
+        if (dataOut_enb) begin
+          if (dataOut_addr >= 14'b10101001111100) begin
+            dataOut_addr <= 14'b00000000000000;
+          end
+          else begin
+            dataOut_addr <= dataOut_addr + 14'b00000000000001;
+          end
+        end
+      end
+    end
+
+
+
+  assign dataOut_lastAddr = dataOut_addr >= 14'b10101001111100;
+
+
+
+  assign dataOut_done = dataOut_lastAddr & resetn;
+
+
+
+  // Delay to allow last sim cycle to complete
+  always @(posedge clk or posedge reset)
+    begin : checkDone_1
+      if (reset) begin
+        check1_done <= 0;
+      end
+      else begin
+        if (dataOut_done_enb) begin
+          check1_done <= dataOut_done;
+        end
+      end
+    end
+
+  assign snkDone = check5_done & (check4_done & (check3_done & (check1_done & check2_done)));
+
+
+
+  assign #1 dataOut_addr_delay_1 = dataOut_addr;
+
+  // Data source for dataOut_expected
+  initial
+    begin : dataOut_expected_fileread
+     fp_dataOut_expected = $fopen("dataOut_expected.dat", "r");
+     status_dataOut_expected = $rewind(fp_dataOut_expected);
+    end
+
+  always @(dataOut_addr_delay_1, ce_out, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        dataOut_expected <= 1'bx;
+      end
+      else if (ce_out == 1) begin
+        status_dataOut_expected = $fscanf(fp_dataOut_expected, "%h", dataOut_expected);
+      end
+    end
+
+  assign dataOut_ref = dataOut_expected;
+
+  always @(posedge clk or posedge reset)
+    begin : dataOut_checker
+      if (reset == 1'b1) begin
+        dataOut_testFailure <= 1'b0;
+      end
+      else begin
+        if (ce_out == 1'b1 && dataOut !== dataOut_ref) begin
+          dataOut_testFailure <= 1'b1;
+          $display("ERROR in dataOut at time %t : Expected '%h' Actual '%h'", $time, dataOut_ref, dataOut);
+        end
+      end
+    end
+
+  assign #1 ctrlOut_start_addr_delay_1 = dataOut_addr;
+
+  // Data source for ctrlOut_start_expected
+  initial
+    begin : ctrlOut_start_expected_fileread
+      fp_ctrlOut_start_expected = $fopen("ctrlOut_start_expected.dat", "r");
+      status_ctrlOut_start_expected = $rewind(fp_ctrlOut_start_expected);
+
+    end
+
+  always @(ctrlOut_start_addr_delay_1, ce_out, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        ctrlOut_start_expected <= 1'bx;
+      end
+      else if (ce_out == 1) begin
+        status_ctrlOut_start_expected = $fscanf(fp_ctrlOut_start_expected, "%h", ctrlOut_start_expected);
+      end
+    end
+
+  assign ctrlOut_start_ref = ctrlOut_start_expected;
+
+  always @(posedge clk or posedge reset)
+    begin : ctrlOut_start_checker
+      if (reset == 1'b1) begin
+        ctrlOut_start_testFailure <= 1'b0;
+      end
+      else begin
+        if (ce_out == 1'b1 && ctrlOut_start !== ctrlOut_start_ref) begin
+          ctrlOut_start_testFailure <= 1'b1;
+          $display("ERROR in ctrlOut_start at time %t : Expected '%h' Actual '%h'", $time, ctrlOut_start_ref, ctrlOut_start);
+        end
+      end
+    end
+
+  assign #1 ctrlOut_end_addr_delay_1 = dataOut_addr;
+
+  // Data source for ctrlOut_end_expected
+  initial
+    begin : ctrlOut_end_expected_fileread
+      fp_ctrlOut_end_expected = $fopen("ctrlOut_end_expected.dat", "r");
+      status_ctrlOut_end_expected = $rewind(fp_ctrlOut_end_expected);
+    end
+
+  always @(ctrlOut_end_addr_delay_1, ce_out, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        ctrlOut_end_expected <= 1'bx;
+      end
+      else if (ce_out == 1) begin
+        status_ctrlOut_end_expected = $fscanf(fp_ctrlOut_end_expected, "%h", ctrlOut_end_expected);
+      end
+    end
+
+  assign ctrlOut_end_ref = ctrlOut_end_expected;
+
+  always @(posedge clk or posedge reset)
+    begin : ctrlOut_end_checker
+      if (reset == 1'b1) begin
+        ctrlOut_end_testFailure <= 1'b0;
+      end
+      else begin
+        if (ce_out == 1'b1 && ctrlOut_end !== ctrlOut_end_ref) begin
+          ctrlOut_end_testFailure <= 1'b1;
+          $display("ERROR in ctrlOut_end at time %t : Expected '%h' Actual '%h'", $time, ctrlOut_end_ref, ctrlOut_end);
+        end
+      end
+    end
+
+  assign #1 ctrlOut_valid_addr_delay_1 = dataOut_addr;
+
+  // Data source for ctrlOut_valid_expected
+  initial
+    begin : ctrlOut_valid_expected_fileread
+     fp_ctrlOut_valid_expected = $fopen("ctrlOut_valid_expected.dat", "r");
+     status_ctrlOut_valid_expected = $rewind(fp_ctrlOut_valid_expected);
+    end
+
+  always @(ctrlOut_valid_addr_delay_1, ce_out, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        ctrlOut_valid_expected <= 1'bx;
+      end
+      else if (ce_out == 1) begin
+        status_ctrlOut_valid_expected = $fscanf(fp_ctrlOut_valid_expected, "%h", ctrlOut_valid_expected);
+      end
+    end
+
+  assign ctrlOut_valid_ref = ctrlOut_valid_expected;
+
+  always @(posedge clk or posedge reset)
+    begin : ctrlOut_valid_checker
+      if (reset == 1'b1) begin
+        ctrlOut_valid_testFailure <= 1'b0;
+      end
+      else begin
+        if (ce_out == 1'b1 && ctrlOut_valid !== ctrlOut_valid_ref) begin
+          ctrlOut_valid_testFailure <= 1'b1;
+          $display("ERROR in ctrlOut_valid at time %t : Expected '%h' Actual '%h'", $time, ctrlOut_valid_ref, ctrlOut_valid);
+        end
+      end
+    end
+
+  assign #1 nextFrame_addr_delay_1 = dataOut_addr;
+
+  // Data source for nextFrame_expected
+  initial
+    begin : nextFrame_expected_fileread
+      fp_nextFrame_expected = $fopen("nextFrame_expected.dat", "r");
+      status_nextFrame_expected = $rewind(fp_nextFrame_expected);
+    end
+
+  always @(nextFrame_addr_delay_1, ce_out, tb_enb_delay)
+    begin
+      if (tb_enb_delay == 0) begin
+        nextFrame_expected <= 1'bx;
+      end
+      else if (ce_out == 1) begin
+        status_nextFrame_expected = $fscanf(fp_nextFrame_expected, "%h", nextFrame_expected);
+      end
+    end
+
+  assign nextFrame_ref = nextFrame_expected;
+
+  always @(posedge clk or posedge reset)
+    begin : nextFrame_checker
+      if (reset == 1'b1) begin
+        nextFrame_testFailure <= 1'b0;
+      end
+      else begin
+        if (ce_out == 1'b1 && nextFrame !== nextFrame_ref) begin
+          nextFrame_testFailure <= 1'b1;
+          $display("ERROR in nextFrame at time %t : Expected '%h' Actual '%h'", $time, nextFrame_ref, nextFrame);
+        end
+      end
+    end
+
+  assign testFailure = nextFrame_testFailure | (ctrlOut_valid_testFailure | (ctrlOut_end_testFailure | (dataOut_testFailure | ctrlOut_start_testFailure)));
+
+
+
+  always @(posedge clk)
+    begin : completed_msg
+      if (snkDone == 1'b1) begin
+        if (testFailure == 1'b0) begin
+          $display("**************TEST COMPLETED (PASSED)**************");
+        end
+        else begin
+          $display("**************TEST COMPLETED (FAILED)**************");
+        end
+      end
+    end
+
+endmodule 
+

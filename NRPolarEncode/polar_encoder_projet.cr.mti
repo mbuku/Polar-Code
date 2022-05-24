@@ -1,0 +1,379 @@
+{C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_4.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_4.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_4
+
+Top level modules:
+	Stage_4
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/configControl.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/configControl.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module configControl
+
+Top level modules:
+	configControl
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Polar_Encoder_5G.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Polar_Encoder_5G.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Polar_Encoder_5G
+
+Top level modules:
+	Polar_Encoder_5G
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/validateConfig.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/validateConfig.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module validateConfig
+
+Top level modules:
+	validateConfig
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block6.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block6.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block6
+
+Top level modules:
+	Detect_Increase_block6
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_8.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_8.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_8
+
+Top level modules:
+	Stage_8
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/J_calc.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/J_calc.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module J_calc
+
+Top level modules:
+	J_calc
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/sequence_rsvd.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/sequence_rsvd.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module sequence_rsvd
+
+Top level modules:
+	sequence_rsvd
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase
+
+Top level modules:
+	Detect_Increase
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_1.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_1.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_1
+
+Top level modules:
+	Stage_1
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/order.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/order.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module order
+
+Top level modules:
+	order
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Polar_Encoder_5G_tb.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Polar_Encoder_5G_tb.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Polar_Encoder_5G_tb
+
+Top level modules:
+	Polar_Encoder_5G_tb
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_9_block.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_9_block.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_9_block
+
+Top level modules:
+	Stage_9_block
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase2_block.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase2_block.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase2_block
+
+Top level modules:
+	Detect_Increase2_block
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/encode.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/encode.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module encode
+
+Top level modules:
+	encode
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/MATLAB_Function.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/MATLAB_Function.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module MATLAB_Function
+
+Top level modules:
+	MATLAB_Function
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block3.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block3.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block3
+
+Top level modules:
+	Detect_Increase_block3
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_5.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_5.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_5
+
+Top level modules:
+	Stage_5
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Buffer_Data.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Buffer_Data.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Buffer_Data
+
+Top level modules:
+	Buffer_Data
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block7.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block7.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block7
+
+Top level modules:
+	Detect_Increase_block7
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_9.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_9.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_9
+
+Top level modules:
+	Stage_9
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Decrease.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Decrease.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Decrease
+
+Top level modules:
+	Detect_Decrease
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase2.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase2.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase2
+
+Top level modules:
+	Detect_Increase2
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Polar_Encoder_Bloc.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Polar_Encoder_Bloc.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Polar_Encoder_Bloc
+
+Top level modules:
+	Polar_Encoder_Bloc
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Sample_Control_Bus_Creator.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Sample_Control_Bus_Creator.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Sample_Control_Bus_Creator
+
+Top level modules:
+	Sample_Control_Bus_Creator
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/uplinkValid.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/uplinkValid.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module uplinkValid
+
+Top level modules:
+	uplinkValid
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_2.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_2.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_2
+
+Top level modules:
+	Stage_2
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/shortPunc.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/shortPunc.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module shortPunc
+
+Top level modules:
+	shortPunc
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/pass.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/pass.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module pass
+
+Top level modules:
+	pass
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block4.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block4.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block4
+
+Top level modules:
+	Detect_Increase_block4
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/addrTranslate.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/addrTranslate.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module addrTranslate
+
+Top level modules:
+	addrTranslate
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_6.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_6.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_6
+
+Top level modules:
+	Stage_6
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/frameRAM.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/frameRAM.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module frameRAM
+
+Top level modules:
+	frameRAM
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Shorten.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Shorten.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Shorten
+
+Top level modules:
+	Shorten
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block
+
+Top level modules:
+	Detect_Increase_block
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/controller.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/controller.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module controller
+
+Top level modules:
+	controller
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/ceilLog2K.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/ceilLog2K.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module ceilLog2K
+
+Top level modules:
+	ceilLog2K
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block8.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block8.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block8
+
+Top level modules:
+	Detect_Increase_block8
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Min.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Min.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Min
+
+Top level modules:
+	Min
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Puncture.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Puncture.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Puncture
+
+Top level modules:
+	Puncture
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/pass_block.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/pass_block.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module pass_block
+
+Top level modules:
+	pass_block
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block1.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block1.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block1
+
+Top level modules:
+	Detect_Increase_block1
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/alpha16.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/alpha16.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module alpha16
+
+Top level modules:
+	alpha16
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/itlvMap.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/itlvMap.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module itlvMap
+
+Top level modules:
+	itlvMap
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Mapping_Data.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Mapping_Data.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Mapping_Data
+
+Top level modules:
+	Mapping_Data
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/SimpleDualPortRAM_singlebit.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/SimpleDualPortRAM_singlebit.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module SimpleDualPortRAM_singlebit
+
+Top level modules:
+	SimpleDualPortRAM_singlebit
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_3.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_3.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_3
+
+Top level modules:
+	Stage_3
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block5.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block5.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block5
+
+Top level modules:
+	Detect_Increase_block5
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_7.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_7.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_7
+
+Top level modules:
+	Stage_7
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/framing.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/framing.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Buffer_Data_Bloc
+
+Top level modules:
+	Buffer_Data_Bloc
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/configure.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/configure.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module configure
+
+Top level modules:
+	configure
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_0.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Stage_0.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Stage_0
+
+Top level modules:
+	Stage_0
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block2.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/Detect_Increase_block2.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Detect_Increase_block2
+
+Top level modules:
+	Detect_Increase_block2
+
+} {} {}} {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/ceilLog2E.v} {1 {vlog -work work -vopt -stats=none {C:/Users/joys_mbuku/Desktop/TFE_VEERILOG_FILES/UPLINK PART/NRPolarEncodeHDL/ceilLog2E.v}
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module ceilLog2E
+
+Top level modules:
+	ceilLog2E
+
+} {} {}}
