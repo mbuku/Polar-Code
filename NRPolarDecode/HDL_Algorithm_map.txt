@@ -1,0 +1,30 @@
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/Configuration/SimpleDualPortRAM_singlebit --> SimpleDualPortRAM_singlebit
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/Configuration --> Configuration
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/channelLoader --> channelLoader
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/coreController --> coreController
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory/SimpleDualPortRAM_generic --> SimpleDualPortRAM_generic
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory/ramNet --> ramNet
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory/ramNet --> ramNet_block
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory/ramNet --> ramNet_block1
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory/ramNet --> ramNet_block2
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory/ramNet --> ramNet_block3
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory/ramNet --> ramNet_block4
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/TreeMemory --> TreeMemory
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/DecoderCore --> DecoderCore
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/Decision --> Decision
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/PathMem --> PathMem
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/outputController --> outputController
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/endInNet --> endInNet
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCGenerator/CRCGenControl --> CRCGenControl
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCGenerator/CRCGenCompute --> CRCGenCompute
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCGenerator --> CRCGenerator
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCCompNet --> CRCCompNet
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder --> CRC_Decoder
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/endInNet --> endInNet_block
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCGenerator/CRCGenControl --> CRCGenControl_block
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCGenerator/CRCGenCompute --> CRCGenCompute_block
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCGenerator --> CRCGenerator_block
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder/CRCCompNet --> CRCCompNet_block
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder/CRC Decoder --> CRC_Decoder_block
+NRPolarDecodeHDL/HDL Algorithm/NR Polar Decoder --> NR_Polar_Decoder
+NRPolarDecodeHDL/HDL Algorithm --> HDL_Algorithm
